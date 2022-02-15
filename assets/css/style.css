@@ -427,16 +427,21 @@ header{
     color: #fff;
 }
 
-.mapWrap {
-    position: relative;
-    min-height: 600px;
-}
-#googleMap {
-    position: absolute !important;
-    top: 0;
-    left: 0;
-    height: 100%;
-}
+#map-canvas {
+	height: 100%;
+	position: absolute; 
+	top: 0; 
+	bottom: -200px; 
+	left: 0; 
+	right: 0; 
+	z-index: 0;
+  }
+  
+  #container {
+	z-index: 100;
+	position: relative;
+  }
+
 #contact-area {
     background: rgba(0, 0, 0, 0.7);
     width: 100%;
