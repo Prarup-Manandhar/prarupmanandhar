@@ -1,0 +1,42 @@
+<section id="contact" class="contact page-shell">
+  <div class="contact-card">
+    <div>
+      <p class="section-kicker">Contact</p>
+      <h2>Let’s build something reliable.</h2>
+      <p class="contact-copy">
+        I’m always open to thoughtful conversations about backend engineering,
+        distributed systems, cloud architecture, and full-stack development.
+      </p>
+    </div>
+
+    <div class="contact-actions">
+      <a class="email" href="mailto:prarupmanandhar98@gmail.com">
+        <span>Start a conversation</span>
+        <strong>prarupmanandhar98@gmail.com</strong>
+        <i aria-hidden="true">↗</i>
+      </a>
+      <a href="https://www.linkedin.com/in/prarup-manandhar/" target="_blank" rel="noopener noreferrer">
+        <span>Connect professionally</span>
+        <strong>LinkedIn</strong>
+        <i aria-hidden="true">↗</i>
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .contact { padding-block: 7rem; border-top: 1px solid var(--line); }
+  .contact-card { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: clamp(2rem, 7vw, 7rem); border: 1px solid rgba(158, 227, 111, 0.24); border-radius: 1.6rem; background: radial-gradient(circle at 10% 0%, rgba(158, 227, 111, 0.12), transparent 45%), var(--surface); padding: clamp(1.5rem, 5vw, 4.5rem); }
+  h2 { max-width: 11ch; margin-top: 0.7rem; font-size: clamp(2.4rem, 6vw, 5rem); font-weight: 560; letter-spacing: -0.055em; line-height: 0.98; }
+  .contact-copy { max-width: 38rem; margin-top: 1.5rem; color: var(--white-icon); }
+  .contact-actions { display: flex; flex-direction: column; justify-content: flex-end; gap: 0.8rem; }
+  .contact-actions a { position: relative; display: flex; min-height: 7rem; flex-direction: column; justify-content: center; border: 1px solid var(--line); border-radius: 1rem; background: rgba(11, 13, 15, 0.45); padding: 1rem 3.2rem 1rem 1.1rem; text-decoration: none; transition: border-color 180ms ease, transform 180ms ease; }
+  .contact-actions a:hover { transform: translateY(-3px); border-color: rgba(158, 227, 111, 0.45); }
+  .contact-actions span { color: var(--white-icon); font-size: 0.72rem; }
+  .contact-actions strong { margin-top: 0.3rem; overflow-wrap: anywhere; font-size: 0.9rem; }
+  .contact-actions i { position: absolute; top: 50%; right: 1.2rem; color: var(--sec); font-size: 1.3rem; font-style: normal; transform: translateY(-50%); }
+  @media (max-width: 760px) {
+    .contact { padding-block: 5rem 7rem; }
+    .contact-card { grid-template-columns: 1fr; }
+  }
+</style>

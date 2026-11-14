@@ -1,0 +1,151 @@
+---
+const projects = [
+  {
+    number: "01",
+    title: "Enterprise Platform Modernization",
+    image: "/projects/enterprise-modernization.webp",
+    imageAlt: "Legacy enterprise server infrastructure alongside a modern cloud engineering workstation",
+    description: "Modernized legacy Java modules into maintainable Spring Boot services while strengthening security, data access, testing, and deployment consistency.",
+    highlights: ["Java 21 modernization", "Oracle-to-PostgreSQL migration", "Secure REST and batch workloads"],
+    stack: ["Java 21", "Spring Boot", "PostgreSQL", "Spring Security", "Docker"],
+    category: "Application modernization",
+    accent: "green",
+  },
+  {
+    number: "02",
+    title: "Event-Driven Processing Platform",
+    image: "/projects/event-driven-platform.webp",
+    imageAlt: "Distributed event-streaming infrastructure in a professional network operations environment",
+    description: "Designed Kafka-based services for high-throughput processing with partitioning, consumer groups, retry handling, and observable event workflows.",
+    highlights: ["Partition and consumer strategy", "Retry and offset management", "High-throughput policy processing"],
+    stack: ["Java", "Apache Kafka", "Spring Boot", "OpenTelemetry", "Splunk"],
+    category: "Distributed systems",
+    accent: "blue",
+  },
+  {
+    number: "03",
+    title: "Cloud-Native Delivery Pipeline",
+    image: "/projects/cloud-delivery-pipeline.webp",
+    imageAlt: "Cloud-native deployment infrastructure and modern data center operations",
+    description: "Created repeatable deployment workflows for containerized services with infrastructure automation, quality gates, monitoring, and rollback support.",
+    highlights: ["Containerized service delivery", "Infrastructure as code", "Quality gates and rollback support"],
+    stack: ["AWS", "Kubernetes", "Terraform", "Jenkins", "SonarQube"],
+    category: "Cloud & DevOps",
+    accent: "amber",
+  },
+  {
+    number: "04",
+    title: "API Contract Validation Toolkit",
+    image: "/projects/api-contract-toolkit.webp",
+    imageAlt: "Software engineering workstation used for API contract validation and integration testing",
+    description: "Built lightweight utilities for validating API contracts and generating mock services so frontend and backend teams could test integrations earlier.",
+    highlights: ["Contract validation", "Mock service generation", "Earlier integration feedback"],
+    stack: ["Node.js", "REST APIs", "OpenAPI", "JavaScript", "CI/CD"],
+    category: "Developer tooling",
+    accent: "purple",
+  },
+  {
+    number: "05",
+    title: "Enterprise Policy Experience",
+    image: "/projects/enterprise-policy-experience.webp",
+    imageAlt: "Enterprise financial application interface displayed on a professional widescreen workstation",
+    description: "Built responsive Angular experiences for complex enterprise workflows with reusable components, secure routing, advanced forms, and reliable API integration.",
+    highlights: ["Angular 8–19 delivery", "Forms, guards, and interceptors", "Cross-browser enterprise UX"],
+    stack: ["Angular", "TypeScript", "RxJS", "Material UI", "Jasmine"],
+    category: "Full-stack product delivery",
+    accent: "teal",
+  },
+  {
+    number: "06",
+    title: "Production Reliability Program",
+    image: "/projects/production-reliability.webp",
+    imageAlt: "Production operations center with observability and distributed tracing dashboards",
+    description: "Improved operational visibility and production readiness through distributed tracing, centralized monitoring, load testing, incident support, and code-quality enforcement.",
+    highlights: ["Distributed tracing", "Performance and load testing", "Production incident resolution"],
+    stack: ["OpenTelemetry", "Splunk", "CloudWatch", "JMeter", "New Relic"],
+    category: "Reliability engineering",
+    accent: "rose",
+  },
+];
+---
+
+<section id="projects" class="projects page-shell">
+  <div class="section-heading">
+    <div>
+      <p class="section-kicker">Selected work</p>
+      <h2>Problems I’ve helped solve.</h2>
+    </div>
+    <p>
+      Anonymized case studies from enterprise environments. The focus is on the engineering
+      challenge, system design, and technologies—not proprietary implementation details.
+    </p>
+  </div>
+
+  <div class="project-grid">
+    {projects.map((project) => (
+      <article class={project.accent}>
+        <figure class="project-media">
+          <img
+            src={project.image}
+            alt={project.imageAlt}
+            width="1200"
+            height="800"
+            loading="lazy"
+            decoding="async"
+          />
+          <figcaption>
+            <span>{project.number}</span>
+            <strong>{project.category}</strong>
+          </figcaption>
+        </figure>
+        <div class="project-content">
+          <p>{project.category}</p>
+          <h3>{project.title}</h3>
+          <div class="description">{project.description}</div>
+          <ul class="project-points" aria-label={project.title + " engineering contributions"}>
+            {project.highlights.map((highlight) => <li>{highlight}</li>)}
+          </ul>
+          <ul class="project-stack" aria-label={project.title + " technologies"}>
+            {project.stack.map((technology) => <li>{technology}</li>)}
+          </ul>
+        </div>
+      </article>
+    ))}
+  </div>
+</section>
+
+<style>
+  .projects { padding-block: 7rem; border-top: 1px solid var(--line); }
+  .section-heading { display: grid; grid-template-columns: 1fr minmax(18rem, 0.7fr); gap: 3rem; align-items: end; }
+  .section-heading h2 { max-width: 13ch; margin-top: 0.6rem; font-size: clamp(2.2rem, 5vw, 4.5rem); font-weight: 560; letter-spacing: -0.05em; line-height: 1.03; }
+  .section-heading > p { color: var(--white-icon); }
+  .project-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.2rem; margin-top: 4rem; }
+  article { overflow: hidden; border: 1px solid var(--line); border-radius: 1.4rem; background: var(--surface); transition: transform 180ms ease, border-color 180ms ease; }
+  article:hover { transform: translateY(-4px); border-color: rgba(158, 227, 111, 0.32); }
+  .project-media { position: relative; aspect-ratio: 3 / 2; overflow: hidden; background: #0e1113; }
+  .project-media::after { position: absolute; inset: 0; background: linear-gradient(180deg, transparent 38%, rgba(8, 10, 11, 0.92)); content: ""; pointer-events: none; }
+  .project-media img { width: 100%; height: 100%; object-fit: cover; filter: saturate(0.88) contrast(1.04); transition: transform 500ms cubic-bezier(0.2, 0.7, 0, 1), filter 300ms ease; }
+  article:hover .project-media img { transform: scale(1.035); filter: saturate(1) contrast(1.02); }
+  .project-media figcaption { position: absolute; right: 1rem; bottom: 1rem; left: 1rem; z-index: 2; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+  .project-media figcaption span { color: var(--accent); font-size: 0.72rem; font-weight: 800; }
+  .project-media figcaption strong { border: 1px solid rgba(255, 255, 255, 0.16); border-radius: 999px; background: rgba(8, 10, 11, 0.74); padding: 0.4rem 0.7rem; color: rgba(255, 255, 255, 0.76); font-size: 0.67rem; font-weight: 650; backdrop-filter: blur(10px); }
+  .green { --accent: #9ee36f; --accent-glow: rgba(158, 227, 111, 0.24); }
+  .blue { --accent: #74a7ff; --accent-glow: rgba(116, 167, 255, 0.22); }
+  .amber { --accent: #ffc66d; --accent-glow: rgba(255, 198, 109, 0.2); }
+  .purple { --accent: #bb8cff; --accent-glow: rgba(187, 140, 255, 0.22); }
+  .teal { --accent: #65dfca; --accent-glow: rgba(101, 223, 202, 0.2); }
+  .rose { --accent: #ff8ea1; --accent-glow: rgba(255, 142, 161, 0.2); }
+  .project-content { padding: 1.4rem; }
+  .project-content > p { color: var(--accent); font-size: 0.7rem; font-weight: 750; letter-spacing: 0.08em; text-transform: uppercase; }
+  .project-content h3 { margin-top: 0.45rem; font-size: clamp(1.3rem, 3vw, 1.85rem); line-height: 1.15; }
+  .description { margin-top: 0.9rem; color: var(--white-icon); font-size: 0.88rem; }
+  .project-points { display: grid; gap: 0.45rem; margin-top: 1.2rem; list-style: none; }
+  .project-points li { position: relative; padding-left: 1rem; color: rgba(241, 244, 239, 0.78); font-size: 0.73rem; }
+  .project-points li::before { position: absolute; top: 0.65em; left: 0; width: 0.28rem; height: 0.28rem; border-radius: 50%; background: var(--accent); content: ""; }
+  .project-stack { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-top: 1.3rem; list-style: none; }
+  .project-stack li { border: 1px solid var(--line); border-radius: 999px; padding: 0.3rem 0.58rem; color: var(--white-icon); font-size: 0.66rem; font-weight: 650; }
+  @media (max-width: 760px) {
+    .projects { padding-block: 5rem; }
+    .section-heading, .project-grid { grid-template-columns: 1fr; }
+  }
+</style>

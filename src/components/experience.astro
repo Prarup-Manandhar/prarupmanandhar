@@ -1,0 +1,92 @@
+---
+const roles = [
+  {
+    company: "Fidelity Investments",
+    role: "Senior Software Engineer",
+    period: "August 2026 — Present",
+    summary: "Contributing to reliable enterprise software in financial services, with an emphasis on maintainability, security, scalability, and engineering quality.",
+    current: true,
+  },
+  {
+    company: "USAA",
+    role: "Senior Software Engineer",
+    period: "June 2024 — July 2026",
+    summary: "Modernized Java applications, developed event-driven services and secure APIs, built Angular experiences, and supported database migration, cloud delivery, CI/CD, and developer mentoring.",
+  },
+  {
+    company: "Nike",
+    role: "Senior Software Engineer",
+    period: "March 2022 — May 2024",
+    summary: "Delivered Spring Boot microservices, batch-processing workflows, Kafka integrations, and Angular applications while improving cloud automation, monitoring, and operational reliability.",
+  },
+  {
+    company: "Farm Bureau Mutual Insurance Company",
+    role: "Java Developer",
+    period: "April 2020 — February 2022",
+    summary: "Built Java and Spring Boot services for insurance workflows, developed responsive Angular interfaces, optimized data access, and supported secure cloud infrastructure and delivery pipelines.",
+  },
+];
+---
+
+<section id="experience" class="experience page-shell">
+  <div class="section-heading">
+    <div>
+      <p class="section-kicker">Experience</p>
+      <h2>Building dependable enterprise systems.</h2>
+    </div>
+    <p>
+      Experience across financial services, retail, and insurance—combining hands-on
+      engineering with production ownership and technical mentorship.
+    </p>
+  </div>
+
+  <div class="timeline">
+    {roles.map((role, index) => (
+      <article class:list={{ current: role.current }}>
+        <div class="timeline-marker"><span>{String(index + 1).padStart(2, "0")}</span></div>
+        <div class="role-heading">
+          <div>
+            <h3>{role.company}</h3>
+            <p>{role.role}</p>
+          </div>
+          <time>{role.period}</time>
+        </div>
+        <p class="role-summary">{role.summary}</p>
+      </article>
+    ))}
+  </div>
+
+  <aside class="education">
+    <span>Education</span>
+    <div>
+      <strong>Master of Science in Information Technology</strong>
+      <p>Clark University · Worcester, Massachusetts</p>
+    </div>
+  </aside>
+</section>
+
+<style>
+  .experience { padding-block: 7rem; border-top: 1px solid var(--line); }
+  .section-heading { display: grid; grid-template-columns: 1fr minmax(18rem, 0.7fr); gap: 3rem; align-items: end; }
+  .section-heading h2 { max-width: 14ch; margin-top: 0.6rem; font-size: clamp(2.2rem, 5vw, 4.5rem); font-weight: 560; letter-spacing: -0.05em; line-height: 1.03; }
+  .section-heading > p { color: var(--white-icon); }
+  .timeline { margin-top: 4rem; border-top: 1px solid var(--line); }
+  article { display: grid; grid-template-columns: 4rem minmax(15rem, 0.75fr) minmax(0, 1.25fr); gap: 1.5rem; padding-block: 2rem; border-bottom: 1px solid var(--line); }
+  .timeline-marker span { display: inline-grid; width: 2.4rem; height: 2.4rem; place-items: center; border: 1px solid var(--line); border-radius: 50%; color: var(--white-icon); font-size: 0.7rem; font-weight: 700; }
+  article.current .timeline-marker span { border-color: var(--sec); background: var(--sec-soft); color: var(--sec); }
+  .role-heading h3 { font-size: 1.18rem; font-weight: 700; }
+  .role-heading p { margin-top: 0.25rem; color: var(--sec); font-size: 0.86rem; }
+  time { display: block; margin-top: 0.7rem; color: var(--white-icon); font-size: 0.75rem; }
+  .role-summary { color: var(--white-icon); }
+  .education { display: grid; grid-template-columns: 1fr 2fr; gap: 2rem; margin-top: 2rem; border: 1px solid var(--line); border-radius: 1.2rem; background: var(--surface); padding: 1.4rem; }
+  .education > span { color: var(--sec); font-size: 0.76rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
+  .education strong { font-size: 1rem; }
+  .education p { margin-top: 0.25rem; color: var(--white-icon); font-size: 0.82rem; }
+  @media (max-width: 760px) {
+    .experience { padding-block: 5rem; }
+    .section-heading { grid-template-columns: 1fr; }
+    article { grid-template-columns: 2.8rem 1fr; }
+    .role-summary { grid-column: 2; }
+    .education { grid-template-columns: 1fr; }
+  }
+</style>

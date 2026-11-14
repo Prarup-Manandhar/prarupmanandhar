@@ -1,0 +1,90 @@
+---
+const technologies = [
+  "Java",
+  "Spring Boot",
+  "Apache Kafka",
+  "Angular",
+  "TypeScript",
+  "AWS",
+  "PostgreSQL",
+  "Docker",
+  "Kubernetes",
+  "Terraform",
+  "Jenkins",
+  "OpenTelemetry",
+];
+---
+
+<div class="technology-wall" aria-label="Technology stack">
+  <p class="technology-label">Core technology stack</p>
+  <div class="technology-track">
+    {[...technologies, ...technologies].map((technology, index) => (
+      <span aria-hidden={index >= technologies.length ? "true" : undefined}>{technology}</span>
+    ))}
+  </div>
+</div>
+
+<style>
+  .technology-wall {
+    position: relative;
+    overflow: hidden;
+    margin-top: 2rem;
+    border-block: 1px solid var(--line);
+    padding-block: 1.1rem;
+  }
+
+  .technology-wall::before, .technology-wall::after {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    z-index: 2;
+    width: 5rem;
+    content: "";
+    pointer-events: none;
+  }
+
+  .technology-wall::before { left: 0; background: linear-gradient(90deg, var(--background), transparent); }
+  .technology-wall::after { right: 0; background: linear-gradient(-90deg, var(--background), transparent); }
+
+  .technology-label {
+    margin-bottom: 0.8rem;
+    color: var(--white-icon);
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .technology-track {
+    display: flex;
+    width: max-content;
+    animation: scroll 34s linear infinite;
+  }
+
+  .technology-track span {
+    display: inline-flex;
+    align-items: center;
+    margin-right: 2.4rem;
+    color: var(--white-icon);
+    font-size: 0.9rem;
+    font-weight: 650;
+    white-space: nowrap;
+  }
+
+  .technology-track span::before {
+    width: 0.4rem;
+    height: 0.4rem;
+    margin-right: 0.65rem;
+    border-radius: 50%;
+    background: var(--sec);
+    content: "";
+  }
+
+  @keyframes scroll { to { transform: translateX(-50%); } }
+
+  @media (prefers-reduced-motion: reduce) {
+    .technology-track { width: auto; flex-wrap: wrap; gap: 0.75rem 1.5rem; animation: none; }
+    .technology-track span:nth-child(n + 13) { display: none; }
+    .technology-track span { margin-right: 0; }
+  }
+</style>

@@ -1,0 +1,29 @@
+---
+const currentYear = new Date().getFullYear();
+---
+
+<footer>
+  <div class="page-shell footer-inner">
+    <div>
+      <strong>Prarup Manandhar</strong>
+      <span>Senior Software Engineer</span>
+    </div>
+    <p>© {currentYear} Prarup Manandhar. All rights reserved.</p>
+  </div>
+</footer>
+
+<style>
+  footer { border-top: 1px solid var(--line); padding-block: 2rem 6rem; }
+  .footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 2rem; }
+  .footer-inner > div { display: flex; flex-direction: column; }
+  strong { font-size: 0.9rem; }
+  span, p { color: var(--white-icon); font-size: 0.72rem; }
+  p { max-width: 38rem; text-align: right; }
+  a { color: var(--white); text-decoration-color: var(--line); text-underline-offset: 0.2em; }
+  a:hover { color: var(--sec); }
+  @media (max-width: 720px) {
+    footer { padding-bottom: 7rem; }
+    .footer-inner { align-items: flex-start; flex-direction: column; }
+    p { text-align: left; }
+  }
+</style>
